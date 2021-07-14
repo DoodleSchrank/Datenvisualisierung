@@ -1,0 +1,12 @@
+Wie unterscheiden sich die drei Windkomponenten in ihrer Größenordnung?
+	1/1000 - 1
+
+Wie unterscheidet sich diese Größe von den einzelnen Komponenten (3D Geschw.)?
+	1/100 - 1, positiv
+
+Wie groß sind Minimum und Maximum der 3D-Geschwindigkeit bei Zeitschritt t=0?
+	min: 0.0193707, max: 0.196365
+
+Wie ändern sich diese Werte mit der Zeit?
+	min: goes up, max: goes down later way up
+
