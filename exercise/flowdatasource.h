@@ -21,20 +21,14 @@ public:
     /**
      * @brief generateTornadoAtTime - generates tornado at given timepoint
      * @param time - timepoint
+     * @return float* - returns pointer to data
      */
-    void generateTornadoAtTime(int time);
+    float *generateTornadoAtTime(int time);
 
     /**
-     * @brief getData
-     * @return float* - pointer to the tornado data
+     * @brief printValuesOfHorizontalSlice - prints out the 3d vectors on a given z
      */
-    float *getData();
-
-    /**
-     * @brief getSpeeds
-     * @return float* - pointer to the 2d speed slice
-     */
-    float *getSpeeds();
+    void printValuesOfHorizontalSlice(int iz);
 
     /**
      * @brief getZSlice
@@ -49,7 +43,6 @@ private:
     float getSpeed(int ix, int iy, int iz);
 
     float *cartesianDataGrid_;
-    float *speeds_;
     float *slice_;
     int dimensions_;
 };

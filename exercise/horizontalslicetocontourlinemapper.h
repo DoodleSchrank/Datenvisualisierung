@@ -25,6 +25,7 @@ public:
     QVector<QVector3D> mapSliceToContourLineSegments();
 
 private:
+    QVector<QVector3D> MarchingSquares(float c);
 
     float* data_;
     int dim_;

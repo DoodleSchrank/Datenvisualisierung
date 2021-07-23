@@ -44,32 +44,31 @@ void gen_tornado(int xs, int ys, int zs, int time, float *tornado) {
 
 FlowDataSource::FlowDataSource(int dim) {
     cartesianDataGrid_ = new float[dim * dim * dim * 3];
-    speeds_ = new float[dim * dim * dim];
     slice_ = new float[dim * dim];
     dimensions_ = dim;
 }
 
 FlowDataSource::~FlowDataSource() {
     delete[] cartesianDataGrid_;
-    delete[] speeds_;
     delete[] slice_;
 }
 
-void FlowDataSource::generateTornadoAtTime(int time) {
+float* FlowDataSource::generateTornadoAtTime(int time) {
     gen_tornado(dimensions_, dimensions_, dimensions_, time, cartesianDataGrid_);
-}
-
-float *FlowDataSource::getData() {
     return cartesianDataGrid_;
 }
 
-float *FlowDataSource::getSpeeds() {
-    return speeds_;
+
+void FlowDataSource::printValuesOfHorizontalSlice(int iz) {
+    for(int y = 0; y < dimensions_; y++) {
+        for(int x = 0; x < dimensions_; x++) {
+            printf("(%f %f %f)\t", getDataValue(x, y, iz, 0), getDataValue(x, y, iz, 1), getDataValue(x, y, iz, 2));
+        }
+        printf("\n");
+    }
 }
 
 float *FlowDataSource::getZSlice(int slice) {
-    int x = 2;
-
     // copy 2d slice of x-wind out of the 4d array
 #pragma omp parallel for collapse(2)
     for (int y = 0; y < dimensions_; y++)

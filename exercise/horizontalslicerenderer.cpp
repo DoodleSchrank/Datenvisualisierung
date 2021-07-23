@@ -1,7 +1,7 @@
 #include "horizontalslicerenderer.h"
 
-HorizontalSliceRenderer::HorizontalSliceRenderer(float* slice, int dim)
-    : vertexBuffer(QOpenGLBuffer::VertexBuffer), mapper_(slice, dim), data_(data), dim_(dim) {
+HorizontalSliceRenderer::HorizontalSliceRenderer(float* data, int dim)
+    : vertexBuffer(QOpenGLBuffer::VertexBuffer), mapper_(data, dim), data_(data), dim_(dim) {
     initOpenGLShaders();
     initHorizontalSliceGeometry();
 }
@@ -113,4 +113,10 @@ void HorizontalSliceRenderer::updateHorizontalSliceGeometry(int slice) {
     vertexBuffer.bind();
     vertexBuffer.allocate(unitCubeVertices, numVertices * 3 * sizeof(float));
     vertexBuffer.release();
+
+    // reset texture
+    texture_->destroy();
+    texture_ = new QOpenGLTexture(QOpenGLTexture::Target2D);
+    texture_->create();
+    texture_->setWrapMode(QOpenGLTexture::ClampToEdge);
 }

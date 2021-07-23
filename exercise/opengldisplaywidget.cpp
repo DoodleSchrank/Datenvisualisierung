@@ -8,7 +8,7 @@ OpenGLDisplayWidget::OpenGLDisplayWidget(QWidget *parent)
     // setup timer for animation
     timer_ = new QTimer(this);
     QObject::connect(timer_, SIGNAL(timeout()), this, SLOT(GenerateNextTimeStep()));
-    timer_->start(50); // time in ms
+    timer_->start(500); // time in ms
 }
 
 
@@ -76,9 +76,8 @@ void OpenGLDisplayWidget::paintGL() {
 
     // Call renderer modules.
     bboxRenderer->drawBoundingBox(mvpMatrix);
-
-    slicerenderer_->drawHorizontalSlice(mvpMatrix);
-    contourrenderer_->drawContourLines(mvpMatrix);
+    //slicerenderer_->drawHorizontalSlice(mvpMatrix);
+    //contourrenderer_->drawContourLines(mvpMatrix);
     streamrenderer_->drawStreamLines(mvpMatrix);
 }
 
@@ -194,7 +193,7 @@ void OpenGLDisplayWidget::initVisualizationPipeline() {
 
     // generate data
     data_ = new FlowDataSource(dim_);
-    data_->generateTime(time_);
+    float* data = data_->generateTornadoAtTime(time_);
     float* slicedata = data_->getZSlice(0);
 
     // initialize render modules
@@ -202,20 +201,20 @@ void OpenGLDisplayWidget::initVisualizationPipeline() {
     slicerenderer_ = new HorizontalSliceRenderer(slicedata, dim_);
 
     // iso values for the marching squares algorithm to differentiate between
-    std::vector<float> isovalues = {-0.5, 0, 0.5};
+    std::vector<float> isovalues = {-0.1, 0, 0.1};
     contourrenderer_ = new HorizontalContourLinesRenderer(slicedata, dim_, isovalues);
-    streamrenderer_ = new StreamLinesRenderer(data_->getData(), dim_, seedPoints_, 0.2);
+    streamrenderer_ = new StreamLinesRenderer(data, dim_, seedPoints_, 0.2);
 }
 
 void OpenGLDisplayWidget::GenerateNextTimeStep() {
     // update data
-    time_++;
-    data_->generateTime(time_);
+    /*time_++;
+    data_->generateTornadoAtTime(time_);
     data_->getZSlice(slice_);
 
     // update geometry
     slicerenderer_->updateHorizontalSliceGeometry(slice_);
     contourrenderer_->updateContourGeometry(slice_);
     streamrenderer_->updateStreamLineGeometry();
-    update();
+    update();*/
 }
