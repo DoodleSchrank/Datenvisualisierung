@@ -10,6 +10,7 @@ void gen_tornado(int xs, int ys, int zs, int time, float *tornado) {
     float ydelta = 1.0 / (ys - 1.0);
     float zdelta = 1.0 / (zs - 1.0);
 
+#pragma omp parallel for private(z, xc, yc, r, r2, y, x, temp, scale, z0)
     for (iz = 0; iz < zs; iz++) {
         z = iz * zdelta;                        // map z to 0->1
         xc = 0.5 + 0.1 * std::sin(0.04 * time + 10.0 * z);   // For each z-slice, determine the spiral circle.
@@ -18,15 +19,12 @@ void gen_tornado(int xs, int ys, int zs, int time, float *tornado) {
         r2 = 0.2 + 0.1 * z;                           //    r is the center radius, r2 is for damping
         for (iy = 0; iy < ys; iy++) {
             y = iy * ydelta;
+#pragma omp simd
             for (ix = 0; ix < xs; ix++) {
                 x = ix * xdelta;
                 temp = std::sqrt((y - yc) * (y - yc) + (x - xc) * (x - xc));
                 scale = std::fabs(r - temp);
-                /*
-                 *  I do not like this next line. It produces a discontinuity
-                 *  in the magnitude. Fix it later.
-                 *
-                 */
+
                 if (scale > r2)
                     scale = 0.8 - scale;
                 else
@@ -36,61 +34,48 @@ void gen_tornado(int xs, int ys, int zs, int time, float *tornado) {
                 temp = std::sqrt(temp * temp + z0 * z0);
                 scale = (r + r2 - temp) * scale / (temp + SMALL);
                 scale = scale / (1 + z);
-                *tornado++ = scale * (y - yc) + 0.1 * (x - xc);
-                *tornado++ = scale * -(x - xc) + 0.1 * (y - yc);
-                *tornado++ = scale * z0;
+                tornado[3 * (ix + ys * (iy + zs * iz))] = scale * (y - yc) + 0.1 * (x - xc);
+                tornado[3 * (ix + ys * (iy + zs * iz)) + 1] = scale * -(x - xc) + 0.1 * (y - yc);
+                tornado[3 * (ix + ys * (iy + zs * iz)) + 2] = scale * z0;
             }
         }
     }
 }
 
 FlowDataSource::FlowDataSource(int dim) {
-    cartesianDataGrid_ = new float[dim*dim*dim*3];
-    speeds_ = new float[dim*dim*dim];
-    slice_ = new float[dim*dim];
+    cartesianDataGrid_ = new float[dim * dim * dim * 3];
+    speeds_ = new float[dim * dim * dim];
+    slice_ = new float[dim * dim];
     dimensions_ = dim;
 }
 
 FlowDataSource::~FlowDataSource() {
-    delete cartesianDataGrid_;
-    delete speeds_;
-    delete slice_;
+    delete[] cartesianDataGrid_;
+    delete[] speeds_;
+    delete[] slice_;
 }
 
-void FlowDataSource::generateTime(int time) {
+void FlowDataSource::generateTornadoAtTime(int time) {
     gen_tornado(dimensions_, dimensions_, dimensions_, time, cartesianDataGrid_);
-
-    for(int i = 0; i < dimensions_; i++) {
-        for(int j = 0; j < dimensions_; j++) {
-            for(int k = 0; k < dimensions_; k++) {
-                speeds_[i*dimensions_*dimensions_ + j*dimensions_ + k] = getSpeed(i, j, k);
-            }
-        }
-    }
 }
 
-float* FlowDataSource::getData() {
+float *FlowDataSource::getData() {
     return cartesianDataGrid_;
 }
 
-float* FlowDataSource::getSpeeds() {
+float *FlowDataSource::getSpeeds() {
     return speeds_;
 }
 
-float* FlowDataSource::getSlice(dimension dim, int slice) {
-    if (dim == dimension::x) {
-        for(int y = 0; y < dimensions_; y++)
-            for(int x = 0; x < dimensions_; x++)
-                slice_[y * dimensions_ + x] = getSpeed(slice, y, x);
-    } else if (dim == dimension::y) {
-        for(int y = 0; y < dimensions_; y++)
-            for(int x = 0; x < dimensions_; x++)
-                slice_[3*(y * dimensions_ + x) + 0] = getSpeed(y, slice, x);
-    } else if (dim == dimension::z) {
-        for(int y = 0; y < dimensions_; y++)
-            for(int x = 0; x < dimensions_; x++)
-                slice_[3*(y * dimensions_ + x) + 0] = getSpeed(y, x, slice);
-    }
+float *FlowDataSource::getZSlice(int slice) {
+    int x = 2;
+
+    // copy 2d slice of x-wind out of the 4d array
+#pragma omp parallel for collapse(2)
+    for (int y = 0; y < dimensions_; y++)
+        for (int x = 0; x < dimensions_; x++)
+            slice_[y * dimensions_ + x] = getDataValue(x, y, slice, 0);
+
     return slice_;
 }
 
@@ -100,12 +85,8 @@ float FlowDataSource::getDataValue(int ix, int iy, int iz, int ic) {
 }
 
 
-
 float FlowDataSource::getSpeed(int ix, int iy, int iz) {
     return sqrt(pow(getDataValue(ix, iy, iz, 0), 2) +
                 pow(getDataValue(ix, iy, iz, 1), 2) +
                 pow(getDataValue(ix, iy, iz, 2), 2));
 }
-
-
-

@@ -1,41 +1,58 @@
 #include "horizontalslicetoimagemapper.h"
 
-
-HorizontalSliceToImageMapper::HorizontalSliceToImageMapper()
-{
-
+HorizontalSliceToImageMapper::HorizontalSliceToImageMapper(float* data, int dim) : data_(data), dim_(dim), image_(dim, dim, QImage::Format::Format_RGB16) {
+    MapSliceToImage();
 }
 
-void HorizontalSliceToImageMapper::MapSliceToImage(float* data, QImage *out, int dim) {
-    float normalized_data[dim*dim];
-    for(int i = 0; i < dim*dim; i++)
-        normalized_data[i] = data[i];
-    normalize_data(normalized_data, dim);
-    colorize_data(normalized_data, out, dim);
+void HorizontalSliceToImageMapper::MapSliceToImage() {
+    float normalized_data[dim_ * dim_];
+
+    // copy slice so that normalization can happen without changing the original slice
+#pragma omp parallel for
+    for (int i = 0; i < dim_ * dim_; i++)
+        normalized_data[i] = data_[i];
+
+    normalize_data(normalized_data);
+    colorize_data(normalized_data);
 }
 
-void HorizontalSliceToImageMapper::normalize_data(float* data, int dim) {
+QImage HorizontalSliceToImageMapper::GetImage() {
+    return image_;
+}
+
+void HorizontalSliceToImageMapper::normalize_data(float* normalized_data) {
     float min = std::numeric_limits<float>::max();
     float max = std::numeric_limits<float>::min();
-    for(int i = 0; i < dim * dim * 3; i+=3) {
-        if(data[i] < min)
-            min = data[i];
-        if(data[i] > max)
-            max = data[i];
+
+    // find min/max
+#pragma omp parallel for reduction(min: min) reduction(max: max)
+    for (int i = 0; i < dim_ * dim_; i++) {
+        if (normalized_data[i] < min)
+            min = normalized_data[i];
+        if (normalized_data[i] > max)
+            max = normalized_data[i];
     }
-    for(int i = 0; i < dim * dim; i++) {
-        data[i] = (data[i] - min)/(max - min) * 2 - 1;
+
+    // min-max normalization
+#pragma omp parallel for
+    for (int i = 0; i < dim_ * dim_; i++) {
+        normalized_data[i] = 2 * (normalized_data[i] - min) / (max - min) - 1;
     }
+
+
 }
 
-void HorizontalSliceToImageMapper::colorize_data(float* data, QImage *out, int dim){
+void HorizontalSliceToImageMapper::colorize_data(float* normalized_data) {
     QRgb color;
-    for(int i = 0; i < dim * dim; i+=3) {
+
+    // set pixels according to slice value
+#pragma omp parallel for private(color)
+    for (int i = 0; i < dim_ * dim_; i++) {
         color = qRgb(0, 0, 0);
-        if(data[i] > 0)
-            color = qRgb(data[i] * 255, 0, 0);
-        if(data[i] < 0)
-            color = qRgb(0, 0, data[i] * -255);
-        out->setPixel(i / dim, i % dim, color);
+        if (normalized_data[i] > 0.)
+            color = qRgb(normalized_data[i] * 255, 0, 0);
+        if (normalized_data[i] < 0.)
+            color = qRgb(0, 0, normalized_data[i] * -255);
+        image_.setPixel(i % dim_, i / dim_, color);
     }
 }

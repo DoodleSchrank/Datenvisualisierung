@@ -16,7 +16,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -O2 -fopenmp -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../week02 -I. -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/lib/qt/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
@@ -39,7 +39,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = VisualizationAndGPUComputing1.0.0
 DISTDIR = /home/yannik/OneDrive/Uni/DV/ubung/build-VisualizationAndGPUComputing-Desktop-Debug/.tmp/VisualizationAndGPUComputing1.0.0
 LINK          = g++
-LFLAGS        = 
+LFLAGS        = -fopenmp
 LIBS          = $(SUBLIBS) /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
@@ -52,27 +52,39 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../week02/horizontalslicerenderer.cpp \
+SOURCES       = ../week02/main.cpp \
+		../week02/horizontalslicetocontourlinemapper.cpp \
+		../week02/horizontalcontourlinesrenderer.cpp \
 		../week02/horizontalslicetoimagemapper.cpp \
-		../week02/main.cpp \
+		../week02/horizontalslicerenderer.cpp \
 		../week02/mainwindow.cpp \
 		../week02/opengldisplaywidget.cpp \
 		../week02/datavolumeboundingboxrenderer.cpp \
-		../week02/flowdatasource.cpp moc_mainwindow.cpp \
+		../week02/flowdatasource.cpp \
+		../week02/streamlinesmapper.cpp \
+		../week02/streamlinesrenderer.cpp moc_mainwindow.cpp \
 		moc_opengldisplaywidget.cpp
-OBJECTS       = horizontalslicerenderer.o \
+OBJECTS       = main.o \
+		horizontalslicetocontourlinemapper.o \
+		horizontalcontourlinesrenderer.o \
 		horizontalslicetoimagemapper.o \
-		main.o \
+		horizontalslicerenderer.o \
 		mainwindow.o \
 		opengldisplaywidget.o \
 		datavolumeboundingboxrenderer.o \
 		flowdatasource.o \
+		streamlinesmapper.o \
+		streamlinesrenderer.o \
 		moc_mainwindow.o \
 		moc_opengldisplaywidget.o
-DIST          = ../week02/lines_fshader.glsl \
+DIST          = ../week02/contour_fshader.glsl \
+		../week02/contour_vshader.glsl \
+		../week02/lines_fshader.glsl \
 		../week02/lines_vshader.glsl \
 		../week02/slice_fshader.glsl \
 		../week02/slice_vshader.glsl \
+		../week02/stream_fshader.glsl \
+		../week02/stream_vshader.glsl \
 		/usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -279,18 +291,26 @@ DIST          = ../week02/lines_fshader.glsl \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		../week02/VisualizationAndGPUComputing.pro ../week02/horizontalslicerenderer.h \
+		../week02/VisualizationAndGPUComputing.pro ../week02/horizontalcontourlinesrenderer.h \
+		../week02/horizontalslicerenderer.h \
+		../week02/horizontalslicetocontourlinemapper.h \
 		../week02/horizontalslicetoimagemapper.h \
 		../week02/mainwindow.h \
 		../week02/opengldisplaywidget.h \
 		../week02/datavolumeboundingboxrenderer.h \
-		../week02/flowdatasource.h ../week02/horizontalslicerenderer.cpp \
+		../week02/flowdatasource.h \
+		../week02/streamlinesmapper.h \
+		../week02/streamlinesrenderer.h ../week02/main.cpp \
+		../week02/horizontalslicetocontourlinemapper.cpp \
+		../week02/horizontalcontourlinesrenderer.cpp \
 		../week02/horizontalslicetoimagemapper.cpp \
-		../week02/main.cpp \
+		../week02/horizontalslicerenderer.cpp \
 		../week02/mainwindow.cpp \
 		../week02/opengldisplaywidget.cpp \
 		../week02/datavolumeboundingboxrenderer.cpp \
-		../week02/flowdatasource.cpp
+		../week02/flowdatasource.cpp \
+		../week02/streamlinesmapper.cpp \
+		../week02/streamlinesrenderer.cpp
 QMAKE_TARGET  = VisualizationAndGPUComputing
 DESTDIR       = 
 TARGET        = VisualizationAndGPUComputing
@@ -732,8 +752,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../week02/horizontalslicerenderer.h ../week02/horizontalslicetoimagemapper.h ../week02/mainwindow.h ../week02/opengldisplaywidget.h ../week02/datavolumeboundingboxrenderer.h ../week02/flowdatasource.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../week02/horizontalslicerenderer.cpp ../week02/horizontalslicetoimagemapper.cpp ../week02/main.cpp ../week02/mainwindow.cpp ../week02/opengldisplaywidget.cpp ../week02/datavolumeboundingboxrenderer.cpp ../week02/flowdatasource.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../week02/horizontalcontourlinesrenderer.h ../week02/horizontalslicerenderer.h ../week02/horizontalslicetocontourlinemapper.h ../week02/horizontalslicetoimagemapper.h ../week02/mainwindow.h ../week02/opengldisplaywidget.h ../week02/datavolumeboundingboxrenderer.h ../week02/flowdatasource.h ../week02/streamlinesmapper.h ../week02/streamlinesrenderer.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../week02/main.cpp ../week02/horizontalslicetocontourlinemapper.cpp ../week02/horizontalcontourlinesrenderer.cpp ../week02/horizontalslicetoimagemapper.cpp ../week02/horizontalslicerenderer.cpp ../week02/mainwindow.cpp ../week02/opengldisplaywidget.cpp ../week02/datavolumeboundingboxrenderer.cpp ../week02/flowdatasource.cpp ../week02/streamlinesmapper.cpp ../week02/streamlinesrenderer.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -763,7 +783,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
+	g++ -pipe -O2 -fopenmp -g -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_opengldisplaywidget.cpp
 compiler_moc_header_clean:
@@ -771,16 +791,20 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../week02/mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/yannik/OneDrive/Uni/DV/ubung/build-VisualizationAndGPUComputing-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/yannik/OneDrive/Uni/DV/ubung/week02 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/10.2.0 -I/usr/include/c++/10.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/10.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed -I/usr/include ../week02/mainwindow.h -o moc_mainwindow.cpp
+	/usr/bin/moc $(DEFINES) --include /home/yannik/OneDrive/Uni/DV/ubung/build-VisualizationAndGPUComputing-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/yannik/OneDrive/Uni/DV/ubung/week02 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include ../week02/mainwindow.h -o moc_mainwindow.cpp
 
 moc_opengldisplaywidget.cpp: ../week02/opengldisplaywidget.h \
-		../week02/datavolumeboundingboxrenderer.h \
 		../week02/flowdatasource.h \
-		../week02/horizontalslicetoimagemapper.h \
+		../week02/datavolumeboundingboxrenderer.h \
 		../week02/horizontalslicerenderer.h \
+		../week02/horizontalslicetoimagemapper.h \
+		../week02/horizontalcontourlinesrenderer.h \
+		../week02/horizontalslicetocontourlinemapper.h \
+		../week02/streamlinesrenderer.h \
+		../week02/streamlinesmapper.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/yannik/OneDrive/Uni/DV/ubung/build-VisualizationAndGPUComputing-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/yannik/OneDrive/Uni/DV/ubung/week02 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/10.2.0 -I/usr/include/c++/10.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/10.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed -I/usr/include ../week02/opengldisplaywidget.h -o moc_opengldisplaywidget.cpp
+	/usr/bin/moc $(DEFINES) --include /home/yannik/OneDrive/Uni/DV/ubung/build-VisualizationAndGPUComputing-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/yannik/OneDrive/Uni/DV/ubung/week02 -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/11.1.0 -I/usr/include/c++/11.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/11.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed -I/usr/include ../week02/opengldisplaywidget.h -o moc_opengldisplaywidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -798,28 +822,45 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 
 ####### Compile
 
-horizontalslicerenderer.o: ../week02/horizontalslicerenderer.cpp ../week02/horizontalslicerenderer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o horizontalslicerenderer.o ../week02/horizontalslicerenderer.cpp
+main.o: ../week02/main.cpp ../week02/mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../week02/main.cpp
+
+horizontalslicetocontourlinemapper.o: ../week02/horizontalslicetocontourlinemapper.cpp ../week02/horizontalslicetocontourlinemapper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o horizontalslicetocontourlinemapper.o ../week02/horizontalslicetocontourlinemapper.cpp
+
+horizontalcontourlinesrenderer.o: ../week02/horizontalcontourlinesrenderer.cpp ../week02/horizontalcontourlinesrenderer.h \
+		../week02/horizontalslicetocontourlinemapper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o horizontalcontourlinesrenderer.o ../week02/horizontalcontourlinesrenderer.cpp
 
 horizontalslicetoimagemapper.o: ../week02/horizontalslicetoimagemapper.cpp ../week02/horizontalslicetoimagemapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o horizontalslicetoimagemapper.o ../week02/horizontalslicetoimagemapper.cpp
 
-main.o: ../week02/main.cpp ../week02/mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../week02/main.cpp
+horizontalslicerenderer.o: ../week02/horizontalslicerenderer.cpp ../week02/horizontalslicerenderer.h \
+		../week02/horizontalslicetoimagemapper.h \
+		../week02/flowdatasource.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o horizontalslicerenderer.o ../week02/horizontalslicerenderer.cpp
 
 mainwindow.o: ../week02/mainwindow.cpp ../week02/mainwindow.h \
 		../week02/opengldisplaywidget.h \
-		../week02/datavolumeboundingboxrenderer.h \
 		../week02/flowdatasource.h \
+		../week02/datavolumeboundingboxrenderer.h \
+		../week02/horizontalslicerenderer.h \
 		../week02/horizontalslicetoimagemapper.h \
-		../week02/horizontalslicerenderer.h
+		../week02/horizontalcontourlinesrenderer.h \
+		../week02/horizontalslicetocontourlinemapper.h \
+		../week02/streamlinesrenderer.h \
+		../week02/streamlinesmapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../week02/mainwindow.cpp
 
 opengldisplaywidget.o: ../week02/opengldisplaywidget.cpp ../week02/opengldisplaywidget.h \
-		../week02/datavolumeboundingboxrenderer.h \
 		../week02/flowdatasource.h \
+		../week02/datavolumeboundingboxrenderer.h \
+		../week02/horizontalslicerenderer.h \
 		../week02/horizontalslicetoimagemapper.h \
-		../week02/horizontalslicerenderer.h
+		../week02/horizontalcontourlinesrenderer.h \
+		../week02/horizontalslicetocontourlinemapper.h \
+		../week02/streamlinesrenderer.h \
+		../week02/streamlinesmapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opengldisplaywidget.o ../week02/opengldisplaywidget.cpp
 
 datavolumeboundingboxrenderer.o: ../week02/datavolumeboundingboxrenderer.cpp ../week02/datavolumeboundingboxrenderer.h
@@ -827,6 +868,13 @@ datavolumeboundingboxrenderer.o: ../week02/datavolumeboundingboxrenderer.cpp ../
 
 flowdatasource.o: ../week02/flowdatasource.cpp ../week02/flowdatasource.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o flowdatasource.o ../week02/flowdatasource.cpp
+
+streamlinesmapper.o: ../week02/streamlinesmapper.cpp ../week02/streamlinesmapper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o streamlinesmapper.o ../week02/streamlinesmapper.cpp
+
+streamlinesrenderer.o: ../week02/streamlinesrenderer.cpp ../week02/streamlinesrenderer.h \
+		../week02/streamlinesmapper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o streamlinesrenderer.o ../week02/streamlinesrenderer.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

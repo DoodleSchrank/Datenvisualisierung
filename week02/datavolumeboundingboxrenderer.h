@@ -1,15 +1,18 @@
 #ifndef DATAVOLUMEBOUNDINGBOXRENDERER_H
 #define DATAVOLUMEBOUNDINGBOXRENDERER_H
 
-#include <QOpenGLShaderProgram>
+#include <iostream>
 #include <QOpenGLBuffer>
+#include <QOpenGLContext>
+#include <QOpenGLFunctions>
+#include <QOpenGLShaderProgram>
 #include <QOpenGLVertexArrayObject>
 
 
-class DataVolumeBoundingBoxRenderer
-{
+class DataVolumeBoundingBoxRenderer {
 public:
     DataVolumeBoundingBoxRenderer();
+
     virtual ~DataVolumeBoundingBoxRenderer();
 
     // Draw the bounding box to the current OpenGL viewport.
@@ -17,6 +20,7 @@ public:
 
 private:
     void initOpenGLShaders();
+
     void initBoundingBoxGeometry();
 
     QOpenGLShaderProgram shaderProgram;
