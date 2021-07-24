@@ -17,7 +17,7 @@ HorizontalSliceToContourLineMapper::mapSliceToContourLineSegments() {
 
 QVector <QVector3D> HorizontalSliceToContourLineMapper::MarchingSquares(float c) {
     QVector <QVector3D> vectors;
-    bool mark[dim_ - 1][dim_ - 1];
+    bool mark[dim_][dim_];
     int v0, v1, v2, v3;
     float x1, x2, y1, y2;
 
@@ -39,7 +39,9 @@ QVector <QVector3D> HorizontalSliceToContourLineMapper::MarchingSquares(float c)
             v0 = mark[x][y + 1];
 
             // no contour between these 4 points
-            if ((v0 && v1 && v2 && v3) || (!v0 && !v1 && !v2 && !v3)) continue;
+            if ((v0 && v1 && v2 && v3) || (!v0 && !v1 && !v2 && !v3))
+                continue;
+
             x1 = 0;
             x2 = 0;
             y1 = 0;
@@ -49,10 +51,8 @@ QVector <QVector3D> HorizontalSliceToContourLineMapper::MarchingSquares(float c)
 
             // start on middle left
             if (v0 ^ v3) {
-#pragma omp critical
-                {
-                    vectors.append(QVector3D(x / (dim_ - 1), (y + 0.5) / (dim_ - 1), 0.001));
-                }
+                x1 = x;
+                y1 = y + 0.5;
             }
             if (v0 ^ v1) {
                 // end in bottom middle

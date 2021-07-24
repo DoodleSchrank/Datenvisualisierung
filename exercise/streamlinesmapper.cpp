@@ -2,7 +2,7 @@
 
 StreamLinesMapper::StreamLinesMapper(float* data, int dim, QVector<QVector3D> seedpoints, float stepsize): seedpoints_(seedpoints), data_(data), dim_(dim), stepsize_(stepsize) {}
 
-#define Rune
+#define Runge
 
 void StreamLinesMapper::ComputeStreamLines() {
     streamlines_.clear();
@@ -18,7 +18,7 @@ void StreamLinesMapper::ComputeStreamLines() {
     for (int i = 0; i < seedpoints_.length(); i++) {
         iter = 0;
         point = seedpoints_.at(i);
-        while (isInCube(point) && iter < 10000) {
+        while (isInCube(point) && iter < 100000) {
             temp.append(point);
 #ifdef Euler
             point += EulerIntegration(point, stepsize_);
@@ -42,6 +42,8 @@ QVector3D StreamLinesMapper::RungeKuttaIntegration(QVector3D vec) {
     // order 4 and stepsize 1 was assumed
     QVector3D k1 = h * EulerIntegration(vec, stepsize_);
     QVector3D k2 = h * EulerIntegration(vec + k1/2., stepsize_ + h / 2.);
+    //while (isnan(k2.x()))
+    //   k2 = h * EulerIntegration(vec + k1 / 2., stepsize_ + h / 2.);
     QVector3D k3 = h * EulerIntegration(vec + k2/2., stepsize_ + h / 2.);
     QVector3D k4 = h * EulerIntegration(vec + k3, stepsize_ + h);
 

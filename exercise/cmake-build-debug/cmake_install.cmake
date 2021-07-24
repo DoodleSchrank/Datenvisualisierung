@@ -1,4 +1,4 @@
-# Install script for directory: /home/yannik/OneDrive/Uni/DV/ubung/week02
+# Install script for directory: /home/yannik/OneDrive/Uni/DV/ubung/exercise
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

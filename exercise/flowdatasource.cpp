@@ -60,9 +60,9 @@ float* FlowDataSource::generateTornadoAtTime(int time) {
 
 
 void FlowDataSource::printValuesOfHorizontalSlice(int iz) {
-    for(int y = 0; y < dimensions_; y++) {
+    for (int y = dimensions_ - 1; y >= 0; y--) {
         for(int x = 0; x < dimensions_; x++) {
-            printf("(%f %f %f)\t", getDataValue(x, y, iz, 0), getDataValue(x, y, iz, 1), getDataValue(x, y, iz, 2));
+            printf("%f\t", getDataValue(x, y, iz, 0));
         }
         printf("\n");
     }

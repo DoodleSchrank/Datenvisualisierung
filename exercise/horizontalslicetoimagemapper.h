@@ -27,12 +27,7 @@ public:
      */
     QImage GetImage();
 
-
 private:
-    void normalize_data(float* normalized_data);
-
-    void colorize_data(float* normalized_data);
-
     float* data_;
     int dim_;
     QImage image_;

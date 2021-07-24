@@ -2,31 +2,34 @@ cmake_minimum_required(VERSION 3.19)
 project(week02)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_AUTOMOC ON)
 
 include_directories(.)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Core REQUIRED)
 
 add_executable(week02
-        datavolumeboundingboxrenderer.cpp
+        opengldisplaywidget.h
+        mainwindow.h
         datavolumeboundingboxrenderer.h
-        flowdatasource.cpp
         flowdatasource.h
-        horizontalcontourlinesrenderer.cpp
         horizontalcontourlinesrenderer.h
-        horizontalslicerenderer.cpp
         horizontalslicerenderer.h
-        horizontalslicetocontourlinemapper.cpp
         horizontalslicetocontourlinemapper.h
-        horizontalslicetoimagemapper.cpp
         horizontalslicetoimagemapper.h
+        streamlinesmapper.h
+        streamlinesrenderer.h
+        datavolumeboundingboxrenderer.cpp
+        flowdatasource.cpp
+        horizontalcontourlinesrenderer.cpp
+        horizontalslicerenderer.cpp
+        horizontalslicetocontourlinemapper.cpp
+        horizontalslicetoimagemapper.cpp
         main.cpp
         mainwindow.cpp
-        mainwindow.h
         opengldisplaywidget.cpp
-        opengldisplaywidget.h
         streamlinesmapper.cpp
-        streamlinesmapper.h
-        streamlinesrenderer.cpp
-        streamlinesrenderer.h)
+        streamlinesrenderer.cpp)
 
 target_link_libraries(week02 Qt5::Widgets)
+target_link_libraries(week02 Qt5::Core)

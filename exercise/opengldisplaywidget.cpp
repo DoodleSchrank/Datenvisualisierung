@@ -63,6 +63,7 @@ void OpenGLDisplayWidget::resizeGL(int w, int h) {
     // Reset projection and set new perspective projection.
     projectionMatrix.setToIdentity();
     projectionMatrix.perspective(45.0, aspectRatio, 0.05, 25.0);
+    //projectionMatrix.ortho(-5, 5, -5, 5, -5, 5000);
 
     // Update model-view-projection matrix with new projection.
     updateMVPMatrix();
@@ -76,8 +77,8 @@ void OpenGLDisplayWidget::paintGL() {
 
     // Call renderer modules.
     bboxRenderer->drawBoundingBox(mvpMatrix);
-    //slicerenderer_->drawHorizontalSlice(mvpMatrix);
-    //contourrenderer_->drawContourLines(mvpMatrix);
+    slicerenderer_->drawHorizontalSlice(mvpMatrix);
+    contourrenderer_->drawContourLines(mvpMatrix);
     streamrenderer_->drawStreamLines(mvpMatrix);
 }
 
@@ -181,20 +182,19 @@ void OpenGLDisplayWidget::initVisualizationPipeline() {
     float seedpointStepsize = 0.01;
 
     // set seed points
-    // for(float x = 0; x < 1; x += seedpointStepsize) {
-        // for(float y = 0; y < 1; y += seedpointStepsize) {
-            for(float z = 0; z < 1; z += seedpointStepsize) {
-                QVector3D temp(0.5, 0.5, z);
-                seedPoints_.append(temp);
-            //}
+    //for (float x = 0; x < 1; x += seedpointStepsize) {
+    //for (float y = 0; y < 1; y += seedpointStepsize) {
+    for (float z = 0; z < 1; z += seedpointStepsize) {
+        QVector3D temp(0.5, 0.5, z);
+        seedPoints_.append(temp);
         //}
     }
-
+    //}
 
     // generate data
     data_ = new FlowDataSource(dim_);
-    float* data = data_->generateTornadoAtTime(time_);
-    float* slicedata = data_->getZSlice(0);
+    float *data = data_->generateTornadoAtTime(time_);
+    float *slicedata = data_->getZSlice(0);
 
     // initialize render modules
     bboxRenderer = new DataVolumeBoundingBoxRenderer();
@@ -208,7 +208,7 @@ void OpenGLDisplayWidget::initVisualizationPipeline() {
 
 void OpenGLDisplayWidget::GenerateNextTimeStep() {
     // update data
-    /*time_++;
+    time_++;
     data_->generateTornadoAtTime(time_);
     data_->getZSlice(slice_);
 
@@ -216,5 +216,5 @@ void OpenGLDisplayWidget::GenerateNextTimeStep() {
     slicerenderer_->updateHorizontalSliceGeometry(slice_);
     contourrenderer_->updateContourGeometry(slice_);
     streamrenderer_->updateStreamLineGeometry();
-    update();*/
+    update();
 }

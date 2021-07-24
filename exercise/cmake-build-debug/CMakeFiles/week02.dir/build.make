@@ -62,10 +62,10 @@ RM = /home/yannik/programs/clion/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yannik/OneDrive/Uni/DV/ubung/week02
+CMAKE_SOURCE_DIR = /home/yannik/OneDrive/Uni/DV/ubung/exercise
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/week02.dir/depend.make
@@ -76,151 +76,165 @@ include CMakeFiles/week02.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/week02.dir/flags.make
 
+CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o: CMakeFiles/week02.dir/flags.make
+CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o: week02_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/week02_autogen/mocs_compilation.cpp
+
+CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/week02_autogen/mocs_compilation.cpp > CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/week02_autogen/mocs_compilation.cpp -o CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.s
+
 CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o: ../datavolumeboundingboxrenderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/datavolumeboundingboxrenderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/datavolumeboundingboxrenderer.cpp
 
 CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/datavolumeboundingboxrenderer.cpp > CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/datavolumeboundingboxrenderer.cpp > CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.i
 
 CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/datavolumeboundingboxrenderer.cpp -o CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/datavolumeboundingboxrenderer.cpp -o CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.s
 
 CMakeFiles/week02.dir/flowdatasource.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/flowdatasource.cpp.o: ../flowdatasource.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/week02.dir/flowdatasource.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/flowdatasource.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/flowdatasource.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/week02.dir/flowdatasource.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/flowdatasource.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/flowdatasource.cpp
 
 CMakeFiles/week02.dir/flowdatasource.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/flowdatasource.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/flowdatasource.cpp > CMakeFiles/week02.dir/flowdatasource.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/flowdatasource.cpp > CMakeFiles/week02.dir/flowdatasource.cpp.i
 
 CMakeFiles/week02.dir/flowdatasource.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/flowdatasource.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/flowdatasource.cpp -o CMakeFiles/week02.dir/flowdatasource.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/flowdatasource.cpp -o CMakeFiles/week02.dir/flowdatasource.cpp.s
 
 CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o: ../horizontalcontourlinesrenderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalcontourlinesrenderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalcontourlinesrenderer.cpp
 
 CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalcontourlinesrenderer.cpp > CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalcontourlinesrenderer.cpp > CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.i
 
 CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalcontourlinesrenderer.cpp -o CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalcontourlinesrenderer.cpp -o CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.s
 
 CMakeFiles/week02.dir/horizontalslicerenderer.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/horizontalslicerenderer.cpp.o: ../horizontalslicerenderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/week02.dir/horizontalslicerenderer.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalslicerenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicerenderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/week02.dir/horizontalslicerenderer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalslicerenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicerenderer.cpp
 
 CMakeFiles/week02.dir/horizontalslicerenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/horizontalslicerenderer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicerenderer.cpp > CMakeFiles/week02.dir/horizontalslicerenderer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicerenderer.cpp > CMakeFiles/week02.dir/horizontalslicerenderer.cpp.i
 
 CMakeFiles/week02.dir/horizontalslicerenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/horizontalslicerenderer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicerenderer.cpp -o CMakeFiles/week02.dir/horizontalslicerenderer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicerenderer.cpp -o CMakeFiles/week02.dir/horizontalslicerenderer.cpp.s
 
 CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.o: ../horizontalslicetocontourlinemapper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicetocontourlinemapper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicetocontourlinemapper.cpp
 
 CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicetocontourlinemapper.cpp > CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicetocontourlinemapper.cpp > CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.i
 
 CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicetocontourlinemapper.cpp -o CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicetocontourlinemapper.cpp -o CMakeFiles/week02.dir/horizontalslicetocontourlinemapper.cpp.s
 
 CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.o: ../horizontalslicetoimagemapper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicetoimagemapper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicetoimagemapper.cpp
 
 CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicetoimagemapper.cpp > CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicetoimagemapper.cpp > CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.i
 
 CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/horizontalslicetoimagemapper.cpp -o CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/horizontalslicetoimagemapper.cpp -o CMakeFiles/week02.dir/horizontalslicetoimagemapper.cpp.s
 
 CMakeFiles/week02.dir/main.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/week02.dir/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/main.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/week02.dir/main.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/main.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/main.cpp
 
 CMakeFiles/week02.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/main.cpp > CMakeFiles/week02.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/main.cpp > CMakeFiles/week02.dir/main.cpp.i
 
 CMakeFiles/week02.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/main.cpp -o CMakeFiles/week02.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/main.cpp -o CMakeFiles/week02.dir/main.cpp.s
 
 CMakeFiles/week02.dir/mainwindow.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/mainwindow.cpp.o: ../mainwindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/week02.dir/mainwindow.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/mainwindow.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/week02.dir/mainwindow.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/mainwindow.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/mainwindow.cpp
 
 CMakeFiles/week02.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/mainwindow.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/mainwindow.cpp > CMakeFiles/week02.dir/mainwindow.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/mainwindow.cpp > CMakeFiles/week02.dir/mainwindow.cpp.i
 
 CMakeFiles/week02.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/mainwindow.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/mainwindow.cpp -o CMakeFiles/week02.dir/mainwindow.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/mainwindow.cpp -o CMakeFiles/week02.dir/mainwindow.cpp.s
 
 CMakeFiles/week02.dir/opengldisplaywidget.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/opengldisplaywidget.cpp.o: ../opengldisplaywidget.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/week02.dir/opengldisplaywidget.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/opengldisplaywidget.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/opengldisplaywidget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/week02.dir/opengldisplaywidget.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/opengldisplaywidget.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/opengldisplaywidget.cpp
 
 CMakeFiles/week02.dir/opengldisplaywidget.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/opengldisplaywidget.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/opengldisplaywidget.cpp > CMakeFiles/week02.dir/opengldisplaywidget.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/opengldisplaywidget.cpp > CMakeFiles/week02.dir/opengldisplaywidget.cpp.i
 
 CMakeFiles/week02.dir/opengldisplaywidget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/opengldisplaywidget.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/opengldisplaywidget.cpp -o CMakeFiles/week02.dir/opengldisplaywidget.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/opengldisplaywidget.cpp -o CMakeFiles/week02.dir/opengldisplaywidget.cpp.s
 
 CMakeFiles/week02.dir/streamlinesmapper.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/streamlinesmapper.cpp.o: ../streamlinesmapper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/week02.dir/streamlinesmapper.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/streamlinesmapper.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/streamlinesmapper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/week02.dir/streamlinesmapper.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/streamlinesmapper.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/streamlinesmapper.cpp
 
 CMakeFiles/week02.dir/streamlinesmapper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/streamlinesmapper.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/streamlinesmapper.cpp > CMakeFiles/week02.dir/streamlinesmapper.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/streamlinesmapper.cpp > CMakeFiles/week02.dir/streamlinesmapper.cpp.i
 
 CMakeFiles/week02.dir/streamlinesmapper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/streamlinesmapper.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/streamlinesmapper.cpp -o CMakeFiles/week02.dir/streamlinesmapper.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/streamlinesmapper.cpp -o CMakeFiles/week02.dir/streamlinesmapper.cpp.s
 
 CMakeFiles/week02.dir/streamlinesrenderer.cpp.o: CMakeFiles/week02.dir/flags.make
 CMakeFiles/week02.dir/streamlinesrenderer.cpp.o: ../streamlinesrenderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/week02.dir/streamlinesrenderer.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/streamlinesrenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/week02/streamlinesrenderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/week02.dir/streamlinesrenderer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/week02.dir/streamlinesrenderer.cpp.o -c /home/yannik/OneDrive/Uni/DV/ubung/exercise/streamlinesrenderer.cpp
 
 CMakeFiles/week02.dir/streamlinesrenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/week02.dir/streamlinesrenderer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/week02/streamlinesrenderer.cpp > CMakeFiles/week02.dir/streamlinesrenderer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannik/OneDrive/Uni/DV/ubung/exercise/streamlinesrenderer.cpp > CMakeFiles/week02.dir/streamlinesrenderer.cpp.i
 
 CMakeFiles/week02.dir/streamlinesrenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/week02.dir/streamlinesrenderer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/week02/streamlinesrenderer.cpp -o CMakeFiles/week02.dir/streamlinesrenderer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannik/OneDrive/Uni/DV/ubung/exercise/streamlinesrenderer.cpp -o CMakeFiles/week02.dir/streamlinesrenderer.cpp.s
 
 # Object files for target week02
 week02_OBJECTS = \
+"CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o" \
 "CMakeFiles/week02.dir/flowdatasource.cpp.o" \
 "CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o" \
@@ -236,6 +250,7 @@ week02_OBJECTS = \
 # External object files for target week02
 week02_EXTERNAL_OBJECTS =
 
+week02: CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o
 week02: CMakeFiles/week02.dir/datavolumeboundingboxrenderer.cpp.o
 week02: CMakeFiles/week02.dir/flowdatasource.cpp.o
 week02: CMakeFiles/week02.dir/horizontalcontourlinesrenderer.cpp.o
@@ -252,7 +267,7 @@ week02: /usr/lib/libQt5Widgets.so.5.15.2
 week02: /usr/lib/libQt5Gui.so.5.15.2
 week02: /usr/lib/libQt5Core.so.5.15.2
 week02: CMakeFiles/week02.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable week02"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable week02"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/week02.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -265,6 +280,6 @@ CMakeFiles/week02.dir/clean:
 .PHONY : CMakeFiles/week02.dir/clean
 
 CMakeFiles/week02.dir/depend:
-	cd /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yannik/OneDrive/Uni/DV/ubung/week02 /home/yannik/OneDrive/Uni/DV/ubung/week02 /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles/week02.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yannik/OneDrive/Uni/DV/ubung/exercise /home/yannik/OneDrive/Uni/DV/ubung/exercise /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles/week02.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/week02.dir/depend
 

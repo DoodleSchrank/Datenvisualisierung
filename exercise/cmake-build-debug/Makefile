@@ -67,10 +67,10 @@ RM = /home/yannik/programs/clion/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yannik/OneDrive/Uni/DV/ubung/week02
+CMAKE_SOURCE_DIR = /home/yannik/OneDrive/Uni/DV/ubung/exercise
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yannik/OneDrive/Uni/DV/ubung/week02/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yannik/OneDrive/Uni/DV/ubung/exercise/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -141,6 +141,19 @@ week02: cmake_check_build_system
 week02/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/week02.dir/build.make CMakeFiles/week02.dir/build
 .PHONY : week02/fast
+
+#=============================================================================
+# Target rules for targets named week02_autogen
+
+# Build rule for target.
+week02_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 week02_autogen
+.PHONY : week02_autogen
+
+# fast build rule for target.
+week02_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/week02_autogen.dir/build.make CMakeFiles/week02_autogen.dir/build
+.PHONY : week02_autogen/fast
 
 datavolumeboundingboxrenderer.o: datavolumeboundingboxrenderer.cpp.o
 
@@ -439,6 +452,33 @@ streamlinesrenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/week02.dir/build.make CMakeFiles/week02.dir/streamlinesrenderer.cpp.s
 .PHONY : streamlinesrenderer.cpp.s
 
+week02_autogen/mocs_compilation.o: week02_autogen/mocs_compilation.cpp.o
+
+.PHONY : week02_autogen/mocs_compilation.o
+
+# target to build an object file
+week02_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/week02.dir/build.make CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.o
+.PHONY : week02_autogen/mocs_compilation.cpp.o
+
+week02_autogen/mocs_compilation.i: week02_autogen/mocs_compilation.cpp.i
+
+.PHONY : week02_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+week02_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/week02.dir/build.make CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.i
+.PHONY : week02_autogen/mocs_compilation.cpp.i
+
+week02_autogen/mocs_compilation.s: week02_autogen/mocs_compilation.cpp.s
+
+.PHONY : week02_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+week02_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/week02.dir/build.make CMakeFiles/week02.dir/week02_autogen/mocs_compilation.cpp.s
+.PHONY : week02_autogen/mocs_compilation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -447,6 +487,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... week02_autogen"
 	@echo "... week02"
 	@echo "... datavolumeboundingboxrenderer.o"
 	@echo "... datavolumeboundingboxrenderer.i"
@@ -481,6 +522,9 @@ help:
 	@echo "... streamlinesrenderer.o"
 	@echo "... streamlinesrenderer.i"
 	@echo "... streamlinesrenderer.s"
+	@echo "... week02_autogen/mocs_compilation.o"
+	@echo "... week02_autogen/mocs_compilation.i"
+	@echo "... week02_autogen/mocs_compilation.s"
 .PHONY : help
 
 
